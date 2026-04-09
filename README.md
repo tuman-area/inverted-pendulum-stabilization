@@ -77,10 +77,10 @@ A single PID on $\theta$ stabilizes the angle but ignores cart position entirely
 
 The solution: two PID controllers running in parallel, their outputs summed into a single force command.
 
-$$F = \text{PID}_\theta(0 - \theta) \;+\; \text{PID}_{x_c}(x_c^{\text{ref}} - x_c)$$
+$$F = \text{PID}_\theta(0 - \theta) + \text{PID}_{x_c}(x_c^{\text{ref}} - x_c)$$
 
 $$
-\boxed{\text{Plant}} \;\xrightarrow{\theta,\; x_c}\; \begin{cases} (0 - \theta) \;\to\; \boxed{\text{Angle PID}} \;\to\; F_\theta \\\  (x_c^{\text{ref}} - x_c) \;\to\; \boxed{\text{Cart PID}} \;\to\; F_x \end{cases} \;\xrightarrow{F = F_\theta + F_x}\; \boxed{\text{Plant}}
+\boxed{\text{Plant}} \xrightarrow{\theta,\, x_c} \begin{cases} (0 - \theta) \to \boxed{\text{Angle PID}} \to F_\theta \\\ (x_c^{\text{ref}} - x_c) \to \boxed{\text{Cart PID}} \to F_x \end{cases} \xrightarrow{F = F_\theta + F_x} \boxed{\text{Plant}}
 $$
 
 - **Angle PID** (dominant) - detects tilt and pushes the cart beneath the pendulum to catch it.
