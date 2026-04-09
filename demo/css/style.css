@@ -217,11 +217,35 @@ header {
   cursor: pointer;
 }
 
-.status-label {
+.status-tooltip {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg2);
+  border: 1px solid var(--bg3);
+  border-radius: 6px;
+  padding: 4px 10px;
   font-size: 0.78rem;
-  color: var(--tx1);
   white-space: nowrap;
-  margin-left: 4px;
+  color: var(--tx1);
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.status-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--bg3);
+}
+
+.status-dot-wrap:hover .status-tooltip {
+  display: block;
 }
 
 .st-stable {
